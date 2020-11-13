@@ -1,0 +1,15 @@
+@import "main";
+@import "light";
+
+.plv-player__full__opacity {
+  opacity: 1;
+}
+
+.plv-player-hide {
+  display: none;
+}
+
+.plv-player-fadeOut {
+  opacity: 0;
+  transition: all 600ms;
+}

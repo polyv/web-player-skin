@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PolyvSkin</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        html, body {
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+
+        video {
+            width: 100%;
+            height: 100%;
+        }
+
+        .wrap {
+            position: relative;
+            content: '';
+            padding-bottom: 56.25%;
+            background-color: #212121;
+        }
+
+        .player {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .control {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+    <script src="polyvskin.js"></script>
+</head>
+<body>
+<div class="wrap">
+    <div class="player">
+        <video class="video"
+               playsinline
+               webkit-playsinline
+               x5-playsinline
+               src="http://mpv.videocc.net/88083abbf5/0/88083abbf5535a4d7b4d8614427559e0_1.mp4"></video>
+    </div>
+    <div class="control"></div>
+</div>
+<script>
+    const video = document.querySelector('video');
+
+    video.addEventListener('canplay', () => {
+      skin && skin.durationUpdate(video.duration);
+    });
+
+    video.addEventListener('timeupdate', () => {
+      skin && skin.timeUpdate(video.currentTime);
+    });
+
+    let duration = 0;
+    video.addEventListener('playing', () => {
+      const videoDuration = video.duration;
+      if (skin && duration !== videoDuration) {
+        skin.durationUpdate(videoDuration);
+        duration = videoDuration;
+      }
+    });
+
+    const skin = new PolyvSkin({
+      el: document.querySelector('.control'), // 控制栏容器
+      level: 0, // 当前码率
+      levels: 3, // 可选码率 1~3 3代表自动，流畅，高清，超清
+    });
+
+    skin.on('INIT', () => {
+      // 初始化后设置对应总时长, 清晰度选择，倍速等
+    });
+
+    skin.on('PLAY_BTN_CLICKED', (isToPlay) => {
+      isToPlay ? video.play() : video.pause();
+    });
+
+    skin.on('FULL_BTN_CLICKED', (isToFull) => {
+      console.log('>>> 是否点击全屏:', isToFull);
+    });
+
+    skin.on('PROGRESS_DRAG_END', (toSeekTime) => {
+      video.currentTime = toSeekTime;
+    });
+
+    skin.on('RATE_CHANGED', (rate) => {
+      console.log('>>> 倍速变化:', rate);
+      video.playbackRate = rate;
+    });
+
+    skin.on('SCREEN_SHOT', () => {
+      console.log('>>> 点击截图按钮');
+    });
+
+    skin.on('HD_CHANGED', (level) => {
+      console.log('>>> 清晰度变化：', level);
+    });
+
+    skin.on('LINE_CHANGED', (index) => {
+      console.log('>>> 线路选择变化：', index);
+    });
+
+    skin.on('LEFT_UP', () => {
+      console.log('>>>亮度调亮');
+    });
+
+    skin.on('LEFT_DOWN', () => {
+      console.log('>>>亮度调暗');
+    });
+
+    skin.on('RIGHT_UP', () => {
+      console.log('>>>音量调高');
+    });
+
+    skin.on('RIGHT_DOWN', () => {
+      console.log('>>>音量调低');
+    });
+
+    skin.on('SWIPE_LEFT', () => {
+      console.log('>>>左滑');
+    });
+
+    skin.on('SWIPE_RIGHT', () => {
+      console.log('>>>右滑');
+    });
+
+    skin.on('SEEK_TO', (time) => {
+      console.log('>>>拖拽播放:', time);
+      video.currentTime = time;
+    });
+</script>
+</body>
+</html>
