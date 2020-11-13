@@ -1,0 +1,157 @@
+$topHeight: 48px;
+$lintHeight: 32px;
+$titleWidth: 50px;
+$enTitleWidth: 60px;
+$titleMargin: 10px;
+
+.plv-player-setup {
+  background: rgba(0, 0, 0, 0.8);
+  color: #ffffff;
+  font-size: 14px;
+  z-index: 2;
+  letter-spacing: 1px;
+
+  display: none;
+  transition: opacity 600ms ease-out, visibility 600ms ease-out;
+
+  &__fade-in-section {
+    display: block;
+  }
+
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background: rgba(0, 0, 0, 0.2);
+  }
+
+  &__top div {
+    display: inline-block;
+    line-height: $lintHeight;
+    vertical-align: middle;
+  }
+
+  &__top__full {
+    height: 100%;
+  }
+
+  &__section__top {
+    height: $lintHeight;
+    margin: ($topHeight - $lintHeight)/2 0;
+    text-align: center;
+    &__border {
+      border-right: 1px solid #000000;
+    }
+  }
+
+  &__selected {
+    width: 16px;
+    height: 16px;
+    background: url(./imgs/selected.png) center / 100% no-repeat;
+  }
+
+  &__unselected {
+    width: 16px;
+    height: 16px;
+    background: url(./imgs/unselected.png) center / 100% no-repeat;
+  }
+
+  &__bottom {
+    position: relative;
+    width: 100%;
+    left: 0;
+    margin-top: 5px;
+    padding: 0 21px;
+  }
+
+  &__bottom div {
+    display: inline-block;
+  }
+
+  &__section {
+    position: relative;
+    width: 100%;
+    margin-top: 10px;
+    text-align: left !important;
+  }
+
+  & &__section {
+    text-align: initial;
+  }
+
+  &__title {
+    width: $titleWidth;
+    line-height: 32px;
+    vertical-align: middle;
+    margin-right: $titleMargin;
+    text-align-last: justify;
+  }
+
+  &__content {
+    position: absolute;
+    display: inline-flex !important;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding-left: $titleWidth + $titleMargin;
+    justify-content: flex-start;
+  }
+
+  &__opt {
+    height: 32px;
+    padding: 0 10px;
+    text-align: center;
+    line-height: 32px;
+    vertical-align: middle;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    margin-right: 8px;
+    border: 1px solid rgba(0, 0, 0, 0);
+  }
+
+  &__active {
+    border: 1px solid #ffffff;
+  }
+
+  &__disable {
+    color: #999999;
+  }
+
+  &__disable &__active {
+    color: #999999;
+    border: 1px solid #999999;
+  }
+
+  // 音频模式
+  &__audio {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: url(./imgs/audio-mode.png) center / 100% no-repeat;
+    z-index: -1;
+  }
+}
+
+.plv-en {
+
+  .plv-player-setup {
+
+    &__title {
+      width: $enTitleWidth;
+    }
+
+    &__content {
+      padding-left: $enTitleWidth + $titleMargin;
+    }
+
+  }
+}
+
+// iphonex 安全区域
+.plv-skin-safearea {
+  .plv-player-setup {
+    padding: 34px;
+  }
+}

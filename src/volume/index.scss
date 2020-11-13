@@ -1,0 +1,59 @@
+// 音量
+.plv-player-volume {
+  display: inline-flex;;
+  align-items: center;
+  width: unset;
+  height: unset;
+  top: 15px;
+  left: 50%;
+  opacity: 0;
+  transform: translateX(-50%);
+  padding: 8px 15px;
+  border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+
+  &__img {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    background: url(./imgs/volume.png) center / 100% no-repeat;
+  }
+
+  &__mute {
+    background: url(./imgs/mute.png) center / 100% no-repeat;
+  }
+
+  &__control {
+    position: relative;
+    width: 100px;
+    height: 2px;
+    margin-left: 5px;
+  }
+
+  &__bg {
+    height: 100%;
+    background-color: white;
+    border-radius: 20px;
+  }
+
+  &__current {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: #366BEE;
+  }
+}
+
+.plv-player__full__opacity {
+  opacity: 1;
+}
+
+.plv-player-hide {
+  display: none;
+}
+
+.plv-player-fadeOut {
+  opacity: 0;
+  transition: all 600ms;
+}

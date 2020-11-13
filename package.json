@@ -1,0 +1,45 @@
+{
+  "name": "@polyv/web-player-skin",
+  "version": "1.0.1",
+  "description": "Polyv mobile terminal control bar with gesture operation",
+  "main": "dist/polyvskin.js",
+  "scripts": {
+    "dev": "webpack-dev-server --open --config ./build/webpack.dev.config.js",
+    "build": "webpack --config ./build/webpack.prod.config.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.1",
+    "@babel/plugin-transform-classes": "^7.10.4",
+    "@babel/plugin-transform-runtime": "^7.11.0",
+    "@babel/preset-env": "^7.11.0",
+    "address": "^1.1.2",
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.1.0",
+    "babel-preset-env": "^1.6.1",
+    "css-loader": "^0.28.11",
+    "eslint": "^7.6.0",
+    "eslint-friendly-formatter": "^4.0.1",
+    "eslint-loader": "^4.0.2",
+    "expose-loader": "^0.7.5",
+    "node-sass": "^4.14.1",
+    "postcss-loader": "^3.0.0",
+    "sass-loader": "^9.0.3",
+    "style-loader": "^1.2.1",
+    "stylelint-webpack-plugin": "^2.1.0",
+    "uglifyjs-webpack-plugin": "^1.2.3",
+    "url-loader": "^3.0.0",
+    "webpack": "^4.1.1",
+    "webpack-cli": "^3.1.1",
+    "webpack-dev-server": "^3.1.0",
+    "webpack-merge": "^4.1.2"
+  },
+  "author": "Polyv frontend team",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/runtime-corejs3": "^7.11.2",
+    "dom7": "^2.1.5",
+    "events": "^3.2.0"
+  }
+}

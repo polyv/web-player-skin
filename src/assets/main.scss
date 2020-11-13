@@ -1,0 +1,56 @@
+.clearfix:after,
+.clearfix:before {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.plv-skin {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  color: #fff;
+  text-align: center;
+  font-family: "Segoe UI","Lucida Grande",Helvetica,Arial,"Microsoft YaHei",FreeSans,Arimo,"Droid Sans","wenquanyi micro hei","Hiragino Sans GB","Hiragino Sans GB W3",FontAwesome,sans-serif;
+}
+
+.plv-skin div {
+  box-sizing: border-box;
+}
+
+// 面板组件
+.plv-player-panel {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+// 截图按钮
+.plv-player-screenshot {
+  width: 36px;
+  height: 36px;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 20px;
+  left: unset;
+  background: url(./imgs/screenShot.png) center / 100% no-repeat;
+  transition: right linear 0.5s;
+}
+
+.plv-player-screenshot__moveout {
+  right: -40px;
+}
+
+// iphoneX安全距离
+.plv-skin-safearea {
+  .plv-player-screenshot {
+    right: 54px;
+  }
+
+  .plv-player-screenshot__moveout {
+    right: -40px;
+  }
+}

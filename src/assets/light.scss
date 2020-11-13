@@ -1,0 +1,16 @@
+// 亮度
+.plv-player-light {
+  opacity: 0;
+  width: unset;
+  height: unset;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  &__img {
+    width: 36px;
+    height: 36px;
+    display: inline-block;
+    background: url(./imgs/light.png) center / 100% no-repeat;
+  }
+}
